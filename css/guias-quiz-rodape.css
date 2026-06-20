@@ -1,0 +1,282 @@
+/* ============================================================
+   Cards de Guias práticos
+   ============================================================ */
+
+.cartao-guia {
+  background: var(--cor-papel);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-card);
+  padding: var(--espaco-3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--cor-texto);
+  box-shadow: var(--sombra-card);
+}
+
+.cartao-guia:hover,
+.cartao-guia:focus-visible {
+  box-shadow: var(--sombra-card-hover);
+  background: var(--cor-branco);
+}
+
+.cartao-guia__icone {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 0.7rem;
+  background: var(--cor-seguro-fundo);
+  color: var(--cor-seguro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.cartao-guia__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cor-marinho);
+}
+
+.cartao-guia__resumo {
+  color: var(--cor-texto-suave);
+  flex: 1;
+}
+
+.cartao-guia__cta {
+  font-weight: 700;
+  color: var(--cor-marinho-claro);
+}
+
+/* Página individual de guia */
+.guia-detalhe {
+  max-width: 42rem;
+}
+
+.guia-detalhe__passo {
+  display: flex;
+  gap: var(--espaco-2);
+  padding: var(--espaco-2) 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.guia-detalhe__passo-marca {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--cor-marinho);
+  color: var(--cor-branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* ============================================================
+   Quiz interativo
+   ============================================================ */
+
+.quiz {
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-card);
+  padding: var(--espaco-4);
+  box-shadow: var(--sombra-card);
+  max-width: 40rem;
+}
+
+.quiz__progresso {
+  font-weight: 700;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-2);
+}
+
+.quiz__pergunta {
+  font-family: var(--fonte-titulo);
+  font-size: 1.4rem;
+  color: var(--cor-marinho);
+  margin-bottom: var(--espaco-3);
+}
+
+.quiz__opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0 0 var(--espaco-3) 0;
+  padding: 0;
+}
+
+.quiz__opcao {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: var(--alvo-toque-min);
+  padding: 0.9rem 1.1rem;
+  text-align: left;
+  border: 2px solid var(--cor-borda);
+  border-radius: 0.7rem;
+  background: var(--cor-papel);
+  font-size: 1.1rem;
+  color: var(--cor-texto);
+}
+
+.quiz__opcao:hover {
+  border-color: var(--cor-marinho-claro);
+}
+
+.quiz__opcao[aria-pressed="true"] {
+  border-color: var(--cor-marinho);
+  background: #E7EEF4;
+  font-weight: 700;
+}
+
+.quiz__opcao--correta {
+  border-color: var(--cor-seguro);
+  background: var(--cor-seguro-fundo);
+}
+
+.quiz__opcao--incorreta {
+  border-color: var(--cor-perigo);
+  background: var(--cor-perigo-fundo);
+}
+
+.quiz__feedback {
+  border-radius: 0.7rem;
+  padding: var(--espaco-2);
+  font-weight: 600;
+  margin-bottom: var(--espaco-3);
+}
+
+.quiz__feedback--certo {
+  background: var(--cor-seguro-fundo);
+  color: var(--cor-seguro);
+}
+
+.quiz__feedback--errado {
+  background: var(--cor-perigo-fundo);
+  color: var(--cor-perigo);
+}
+
+.quiz__rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espaco-2);
+  flex-wrap: wrap;
+}
+
+.quiz__resultado {
+  text-align: center;
+}
+
+.quiz__resultado-numero {
+  font-family: var(--fonte-titulo);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--cor-marinho);
+}
+
+/* ============================================================
+   Rodapé
+   ============================================================ */
+
+.rodape {
+  background: var(--cor-marinho-escuro);
+  color: #C9D7E5;
+  padding: var(--espaco-4) 0;
+  margin-top: var(--espaco-5);
+}
+
+.rodape__grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--espaco-3);
+}
+
+.rodape__titulo {
+  color: var(--cor-branco);
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.rodape a {
+  color: #C9D7E5;
+}
+
+.rodape__base {
+  text-align: center;
+  margin-top: var(--espaco-3);
+  padding-top: var(--espaco-3);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-size: 0.9rem;
+}
+
+/* Botão telefônico de emergência — fixo, sempre acessível.
+   Em telas largas é um FAB compacto para minimizar a chance de
+   cobrir conteúdo; o rótulo aparece no hover/foco. */
+.botao-emergencia {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--cor-perigo);
+  color: var(--cor-branco);
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(140, 31, 40, 0.4);
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.15s ease, border-radius 0.15s ease, padding 0.15s ease;
+}
+
+.botao-emergencia span {
+  font-size: 1.05rem;
+  display: none;
+}
+
+.botao-emergencia:hover,
+.botao-emergencia:focus-visible {
+  width: auto;
+  padding: 0 1.3rem;
+  border-radius: 3rem;
+}
+
+.botao-emergencia:hover span,
+.botao-emergencia:focus-visible span {
+  display: inline;
+}
+
+.botao-emergencia:hover {
+  background: #6E1620;
+}
+
+@media (max-width: 640px) {
+  .botao-emergencia {
+    position: static;
+    display: flex;
+    width: calc(100% - 2.5rem);
+    height: auto;
+    border-radius: 3rem;
+    justify-content: center;
+    padding: 0.9rem 1.3rem;
+    margin: 1.5rem auto 0;
+    box-shadow: none;
+  }
+  .botao-emergencia span {
+    display: inline;
+  }
+}

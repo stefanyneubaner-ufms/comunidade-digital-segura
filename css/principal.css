@@ -1,0 +1,7 @@
+/* Comunidade Digital Segura — folha de estilos principal.
+   Importa os módulos de CSS organizados por responsabilidade. */
+@import url("tokens.css");
+@import url("cabecalho.css");
+@import url("hero-alertas.css");
+@import url("guias-quiz-rodape.css");
+@import url("paginas-internas.css");

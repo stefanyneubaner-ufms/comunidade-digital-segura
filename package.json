@@ -1,0 +1,20 @@
+{
+  "name": "comunidade-digital-segura",
+  "version": "1.0.0",
+  "description": "Aplicação web educativa de segurança digital para idosos e pequenos comerciantes. Projeto de Extensão UFMS Digital (95DX7.200525).",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "serve": "npx serve ."
+  },
+  "keywords": [
+    "acessibilidade",
+    "seguranca-digital",
+    "letramento-digital",
+    "web-components",
+    "html5",
+    "css3"
+  ],
+  "author": "Stefany Caroline Neubaner Teixeira",
+  "license": "MIT"
+}

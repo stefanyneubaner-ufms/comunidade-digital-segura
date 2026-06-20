@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guias práticos — Comunidade Digital Segura</title>
+  <meta name="description" content="Guias práticos e passo a passo sobre senhas, Wi-Fi, descarte de eletrônicos e cobranças falsas." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/principal.css" />
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <div id="parcial-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="cabecalho-pagina">
+      <div class="container">
+        <p class="trilha"><a href="index.html">Início</a> / Guias</p>
+        <h1>Guias práticos</h1>
+        <p class="cabecalho-pagina__lead">
+          Passo a passo simples, sem termos técnicos, para você proteger suas contas,
+          seu Wi-Fi e seus dados pessoais.
+        </p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <div class="grade-cards" id="lista-todos-guias"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="parcial-rodape"></div>
+
+  <script type="module" src="js/parciais.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/components/cartao-guia.js"></script>
+  <script type="module">
+    import { guias } from "./js/data/guias.js";
+
+    const container = document.getElementById("lista-todos-guias");
+    guias.forEach((g) => {
+      const el = document.createElement("cartao-guia");
+      el.setAttribute("icone", g.icone);
+      el.setAttribute("titulo", g.titulo);
+      el.setAttribute("resumo", g.resumo);
+      el.setAttribute("href", `guia.html?id=${g.id}`);
+      container.appendChild(el);
+    });
+  </script>
+</body>
+</html>

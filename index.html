@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comunidade Digital Segura — Educação em segurança digital</title>
+  <meta name="description" content="Portal educativo com guias práticos, alertas de golpes e quizzes para ajudar idosos e pequenos comerciantes a se protegerem de golpes digitais." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/principal.css" />
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <div id="parcial-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <!-- Hero: a coisa mais característica deste site é a tranquilidade
+         de saber, de imediato, "estou seguro hoje?" -->
+    <section class="hero">
+      <div class="container hero__grade">
+        <div>
+          <h1 class="hero__titulo">Você não precisa entender de tecnologia para se proteger dela.</h1>
+          <p class="hero__texto">
+            Guias simples, alertas atualizados e um quiz rápido para você e seu negócio
+            ficarem mais seguros contra golpes digitais — sem termos complicados.
+          </p>
+          <div class="hero__acoes">
+            <a class="botao botao--primario" href="alertas.html">Ver alertas recentes</a>
+            <a class="botao botao--secundario" href="quiz.html">Fazer o quiz de segurança</a>
+          </div>
+        </div>
+        <div class="hero__painel" aria-label="Resumo da situação atual de segurança">
+          <p class="hero__painel-titulo">Como está a semana</p>
+          <div class="termometro">
+            <div class="termometro__linha">
+              <span class="termometro__rotulo">Golpes ativos</span>
+              <div class="termometro__barra">
+                <div class="termometro__progresso termometro__progresso--perigo" style="width: 70%"></div>
+              </div>
+            </div>
+            <div class="termometro__linha">
+              <span class="termometro__rotulo">Fique atento</span>
+              <div class="termometro__barra">
+                <div class="termometro__progresso termometro__progresso--alerta" style="width: 45%"></div>
+              </div>
+            </div>
+            <div class="termometro__linha">
+              <span class="termometro__rotulo">Boas práticas</span>
+              <div class="termometro__barra">
+                <div class="termometro__progresso termometro__progresso--seguro" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guias em destaque -->
+    <section class="secao secao--alterna">
+      <div class="container">
+        <div class="secao__cabecalho">
+          <span class="secao__eyebrow">Guias práticos</span>
+          <h2>Aprenda no seu tempo, passo a passo</h2>
+        </div>
+        <div class="grade-cards" id="lista-guias-destaque"></div>
+        <p style="margin-top: 1.5rem;">
+          <a class="botao botao--secundario" style="color:#15324E; border-color:#15324E;" href="guias.html">Ver todos os guias →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Alertas em destaque -->
+    <section class="secao">
+      <div class="container">
+        <div class="secao__cabecalho">
+          <span class="secao__eyebrow">Alertas recentes</span>
+          <h2>O que está acontecendo agora</h2>
+        </div>
+        <div class="grade-cards" id="lista-alertas-destaque"></div>
+        <p style="margin-top: 1.5rem;">
+          <a class="botao botao--primario" href="alertas.html">Ver todos os alertas →</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div id="parcial-rodape"></div>
+
+  <script type="module" src="js/parciais.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/components/cartao-alerta.js"></script>
+  <script type="module" src="js/components/cartao-guia.js"></script>
+  <script type="module">
+    import { alertas } from "./js/data/alertas.js";
+    import { guias } from "./js/data/guias.js";
+
+    const destaqueAlertas = alertas.slice(0, 3);
+    const containerAlertas = document.getElementById("lista-alertas-destaque");
+    destaqueAlertas.forEach((a) => {
+      const el = document.createElement("cartao-alerta");
+      el.setAttribute("nivel", a.nivel);
+      el.setAttribute("titulo", a.titulo);
+      el.setAttribute("texto", a.texto);
+      el.setAttribute("data", a.data);
+      containerAlertas.appendChild(el);
+    });
+
+    const destaqueGuias = guias.slice(0, 3);
+    const containerGuias = document.getElementById("lista-guias-destaque");
+    destaqueGuias.forEach((g) => {
+      const el = document.createElement("cartao-guia");
+      el.setAttribute("icone", g.icone);
+      el.setAttribute("titulo", g.titulo);
+      el.setAttribute("resumo", g.resumo);
+      el.setAttribute("href", `guia.html?id=${g.id}`);
+      containerGuias.appendChild(el);
+    });
+  </script>
+</body>
+</html>

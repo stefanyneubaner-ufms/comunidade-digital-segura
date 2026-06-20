@@ -1,0 +1,114 @@
+/* ============================================================
+   Cabeçalho de página interna
+   ============================================================ */
+
+.cabecalho-pagina {
+  background: var(--cor-branco);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: var(--espaco-4) 0;
+}
+
+.trilha {
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-1);
+}
+
+.trilha a {
+  color: var(--cor-marinho-claro);
+  text-decoration: underline;
+}
+
+.cabecalho-pagina__lead {
+  font-size: var(--tamanho-grande);
+  color: var(--cor-texto-suave);
+  max-width: 42rem;
+}
+
+/* ============================================================
+   Página "Sobre"
+   ============================================================ */
+
+.lista-objetivos {
+  display: grid;
+  gap: var(--espaco-2);
+  padding: 0;
+  margin: 0 0 var(--espaco-3) 0;
+  list-style: none;
+}
+
+.lista-objetivos li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: 0.7rem;
+  padding: var(--espaco-2);
+}
+
+.lista-objetivos li::before {
+  content: "✔";
+  color: var(--cor-seguro);
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.ficha-tecnica {
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-card);
+  padding: var(--espaco-3);
+}
+
+.ficha-tecnica dt {
+  font-weight: 700;
+  color: var(--cor-marinho);
+  margin-top: var(--espaco-2);
+}
+
+.ficha-tecnica dd {
+  margin: 0 0 0.4rem 0;
+  color: var(--cor-texto-suave);
+}
+
+/* ============================================================
+   Filtros simples da página de alertas (nível único, sem
+   esconder opções em menus complexos)
+   ============================================================ */
+
+.filtros {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: var(--espaco-3);
+}
+
+.filtro-botao {
+  min-height: var(--alvo-toque-min);
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  border: 2px solid var(--cor-borda);
+  background: var(--cor-branco);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.filtro-botao[aria-pressed="true"] {
+  background: var(--cor-marinho);
+  border-color: var(--cor-marinho);
+  color: var(--cor-branco);
+}
+
+/* Página 404 */
+.pagina-erro {
+  text-align: center;
+  padding: var(--espaco-5) var(--espaco-2);
+}
+
+.pagina-erro__codigo {
+  font-family: var(--fonte-titulo);
+  font-size: 5rem;
+  color: var(--cor-marinho-claro);
+}

@@ -1,0 +1,208 @@
+/* ============================================================
+   Hero (seção de abertura)
+   ============================================================ */
+
+.hero {
+  background: linear-gradient(180deg, var(--cor-marinho) 0%, var(--cor-marinho-claro) 100%);
+  color: var(--cor-branco);
+  padding: var(--espaco-5) 0;
+}
+
+.hero__grade {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--espaco-4);
+  align-items: center;
+}
+
+.hero__titulo {
+  color: var(--cor-branco);
+  margin-bottom: var(--espaco-2);
+}
+
+.hero__texto {
+  font-size: var(--tamanho-grande);
+  max-width: 38rem;
+  color: #EAF0F6;
+}
+
+.hero__acoes {
+  display: flex;
+  gap: var(--espaco-2);
+  flex-wrap: wrap;
+  margin-top: var(--espaco-3);
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: var(--alvo-toque-min);
+  padding: 0.85rem 1.75rem;
+  border-radius: 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.botao--primario {
+  background: var(--cor-alerta);
+  color: var(--cor-branco);
+}
+.botao--primario:hover { background: #823E00; }
+
+.botao--secundario {
+  background: transparent;
+  color: var(--cor-branco);
+  border-color: var(--cor-branco);
+}
+.botao--secundario:hover { background: rgba(255,255,255,0.12); }
+
+/* Painel do "termômetro de confiança" no hero:
+   resume de forma honesta o estado atual de alertas ativos. */
+.hero__painel {
+  background: var(--cor-branco);
+  color: var(--cor-texto);
+  border-radius: var(--raio-card);
+  padding: var(--espaco-3);
+  box-shadow: var(--sombra-card);
+}
+
+.hero__painel-titulo {
+  font-family: var(--fonte-corpo);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--cor-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--espaco-2);
+}
+
+.termometro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.termometro__linha {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.termometro__rotulo {
+  width: 6.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.termometro__barra {
+  flex: 1;
+  height: 0.9rem;
+  background: #EDE9DD;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.termometro__progresso {
+  height: 100%;
+  border-radius: 1rem;
+}
+.termometro__progresso--seguro  { background: var(--cor-seguro); }
+.termometro__progresso--alerta  { background: var(--cor-alerta); }
+.termometro__progresso--perigo  { background: var(--cor-perigo); }
+
+@media (max-width: 800px) {
+  .hero__grade { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Cards de Alerta
+   ============================================================ */
+
+.secao {
+  padding: var(--espaco-5) 0;
+}
+
+.secao--alterna {
+  background: var(--cor-branco);
+  border-top: 1px solid var(--cor-borda);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.secao__cabecalho {
+  margin-bottom: var(--espaco-4);
+  max-width: 42rem;
+}
+
+.secao__eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cor-alerta);
+  margin-bottom: 0.4rem;
+}
+
+.grade-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: var(--espaco-3);
+  padding-bottom: 4.5rem;
+}
+
+.cartao-alerta {
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-left: 0.5rem solid var(--cor-alerta);
+  border-radius: var(--raio-card);
+  padding: var(--espaco-3);
+  box-shadow: var(--sombra-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cartao-alerta--perigo { border-left-color: var(--cor-perigo); }
+.cartao-alerta--seguro { border-left-color: var(--cor-seguro); }
+
+.cartao-alerta:hover {
+  box-shadow: var(--sombra-card-hover);
+}
+
+.cartao-alerta__selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 2rem;
+  width: fit-content;
+}
+
+.cartao-alerta__selo--alerta { background: var(--cor-alerta-fundo); color: var(--cor-alerta); }
+.cartao-alerta__selo--perigo { background: var(--cor-perigo-fundo); color: var(--cor-perigo); }
+.cartao-alerta__selo--seguro { background: var(--cor-seguro-fundo); color: var(--cor-seguro); }
+
+.cartao-alerta__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cor-marinho);
+}
+
+.cartao-alerta__texto {
+  color: var(--cor-texto-suave);
+  flex: 1;
+}
+
+.cartao-alerta__data {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  border-top: 1px solid var(--cor-borda);
+  padding-top: 0.6rem;
+}

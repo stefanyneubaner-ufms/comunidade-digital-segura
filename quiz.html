@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz de segurança — Comunidade Digital Segura</title>
+  <meta name="description" content="Teste seus conhecimentos sobre golpes digitais com feedback imediato a cada resposta." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/principal.css" />
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <div id="parcial-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="cabecalho-pagina">
+      <div class="container">
+        <p class="trilha"><a href="index.html">Início</a> / Quiz</p>
+        <h1>Quiz: você reconhece um golpe digital?</h1>
+        <p class="cabecalho-pagina__lead">
+          Responda quatro perguntas rápidas. A cada resposta, você recebe a explicação na hora.
+        </p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <quiz-interativo></quiz-interativo>
+      </div>
+    </section>
+  </main>
+
+  <div id="parcial-rodape"></div>
+
+  <script type="module" src="js/parciais.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/components/quiz-interativo.js"></script>
+</body>
+</html>

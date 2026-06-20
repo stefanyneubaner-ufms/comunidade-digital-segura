@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alertas — Comunidade Digital Segura</title>
+  <meta name="description" content="Alertas atualizados sobre golpes digitais que estão acontecendo agora." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/principal.css" />
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <div id="parcial-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="cabecalho-pagina">
+      <div class="container">
+        <p class="trilha"><a href="index.html">Início</a> / Alertas</p>
+        <h1>Alertas recentes</h1>
+        <p class="cabecalho-pagina__lead">
+          Avisos atualizados sobre golpes confirmados, situações para ficar atento
+          e boas práticas de segurança.
+        </p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <div class="filtros" role="group" aria-label="Filtrar alertas por tipo">
+          <button type="button" class="filtro-botao" data-filtro="todos" aria-pressed="true">Todos</button>
+          <button type="button" class="filtro-botao" data-filtro="perigo" aria-pressed="false">⛔ Golpes confirmados</button>
+          <button type="button" class="filtro-botao" data-filtro="alerta" aria-pressed="false">⚠️ Fique atento</button>
+          <button type="button" class="filtro-botao" data-filtro="seguro" aria-pressed="false">✅ Boas práticas</button>
+        </div>
+        <div class="grade-cards" id="lista-todos-alertas"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="parcial-rodape"></div>
+
+  <script type="module" src="js/parciais.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/components/cartao-alerta.js"></script>
+  <script type="module">
+    import { alertas } from "./js/data/alertas.js";
+
+    const container = document.getElementById("lista-todos-alertas");
+    const botoesFiltro = document.querySelectorAll(".filtro-botao");
+
+    function renderizar(filtro) {
+      container.innerHTML = "";
+      const lista = filtro === "todos" ? alertas : alertas.filter((a) => a.nivel === filtro);
+
+      if (lista.length === 0) {
+        container.innerHTML = `<p>Nenhum alerta encontrado para este filtro no momento.</p>`;
+        return;
+      }
+
+      lista.forEach((a) => {
+        const el = document.createElement("cartao-alerta");
+        el.setAttribute("nivel", a.nivel);
+        el.setAttribute("titulo", a.titulo);
+        el.setAttribute("texto", a.texto);
+        el.setAttribute("data", a.data);
+        container.appendChild(el);
+      });
+    }
+
+    botoesFiltro.forEach((botao) => {
+      botao.addEventListener("click", () => {
+        botoesFiltro.forEach((b) => b.setAttribute("aria-pressed", "false"));
+        botao.setAttribute("aria-pressed", "true");
+        renderizar(botao.dataset.filtro);
+      });
+    });
+
+    renderizar("todos");
+  </script>
+</body>
+</html>

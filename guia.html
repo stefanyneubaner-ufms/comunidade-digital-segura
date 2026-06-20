@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia — Comunidade Digital Segura</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/principal.css" />
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <div id="parcial-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="cabecalho-pagina">
+      <div class="container">
+        <p class="trilha"><a href="index.html">Início</a> / <a href="guias.html">Guias</a> / <span id="trilha-titulo">Guia</span></p>
+        <h1 id="titulo-guia">Carregando guia…</h1>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container guia-detalhe">
+        <div id="passos-guia"></div>
+        <p style="margin-top: 2rem;">
+          <a class="botao botao--secundario" style="color:#15324E; border-color:#15324E;" href="guias.html">← Voltar para todos os guias</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div id="parcial-rodape"></div>
+
+  <script type="module" src="js/parciais.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module">
+    import { guias } from "./js/data/guias.js";
+
+    const parametros = new URLSearchParams(window.location.search);
+    const id = parametros.get("id");
+    const guia = guias.find((g) => g.id === id) || guias[0];
+
+    document.title = `${guia.titulo} — Comunidade Digital Segura`;
+    document.getElementById("titulo-guia").textContent = guia.titulo;
+    document.getElementById("trilha-titulo").textContent = guia.titulo;
+
+    const container = document.getElementById("passos-guia");
+    guia.passos.forEach((passo, indice) => {
+      const div = document.createElement("div");
+      div.className = "guia-detalhe__passo";
+      div.innerHTML = `
+        <span class="guia-detalhe__passo-marca" aria-hidden="true">${indice + 1}</span>
+        <p>${passo}</p>
+      `;
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
