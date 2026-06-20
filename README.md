@@ -4,7 +4,7 @@ Aplicação web educativa para ajudar **idosos** e **pequenos comerciantes** a r
 
 Projeto de Extensão **UFMS Digital** (95DX7.200525) — Curso de Tecnologia da Informação.
 
-> 🔗 **Acesse a versão publicada:** `[adicionar aqui o link do GitHub Pages depois da publicação]`
+> 🔗 **Acesse a versão publicada:** `https://stefanyneubaner-ufms.github.io/comunidade-digital-segura/'
 
 ---
 
@@ -63,34 +63,6 @@ comunidade-digital-segura/
 
 Esta organização por componentes reflete o modelo de entidades (Alerta, Guia, Quiz) definido na etapa de levantamento de requisitos do projeto.
 
-## Como rodar localmente
-
-O site usa `fetch()` para carregar o cabeçalho e o rodapé compartilhados, então **não funciona** abrindo o arquivo direto no navegador (`file://`). É preciso servir por HTTP:
-
-### Opção 1 — Python (já vem instalado na maioria dos sistemas)
-```bash
-cd comunidade-digital-segura
-python3 -m http.server 8080
-```
-Depois abra **http://localhost:8080** no navegador.
-
-### Opção 2 — extensão "Live Server" do VS Code
-Clique com o botão direito em `index.html` → **Open with Live Server**.
-
-### Opção 3 — Node.js
-```bash
-npx serve comunidade-digital-segura
-```
-
-Nenhuma instalação de pacotes (`npm install`) é necessária: o projeto não tem dependências externas.
-
-## Publicação no GitHub Pages
-
-1. Suba este repositório no GitHub (veja `INSTRUCOES_GITHUB.md` neste mesmo pacote).
-2. No repositório, vá em **Settings → Pages**.
-3. Em **Source**, selecione a branch `main` e a pasta `/ (root)`.
-4. Salve e aguarde alguns minutos. O link público aparecerá no topo da página de Pages.
-5. Copie esse link e cole no topo deste README e no relatório da atividade.
 
 ## Controle de versão
 
@@ -106,9 +78,6 @@ O desenvolvimento seguiu a estratégia de *feature branches* por funcionalidade,
 - Testes de usabilidade com representantes do público-alvo (idosos e pequenos comerciantes).
 - Painel administrativo simples para cadastro de novos alertas.
 
-## Licença
-
-Distribuído sob a licença MIT — veja o arquivo [LICENSE](LICENSE).
 
 ## Autoria
 
